@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+  (function () {
+    try {
+      if (localStorage.getItem("theme") === "dark") {
+        document.documentElement.setAttribute("data-theme", "dark");
+      }
+    } catch (err) {}
+  })();
+</script>
+<title>Confete — site de aniversário</title>
+<meta name="description" content="Site de aniversário com contagem regressiva, confirmação de presença e lista de presentes.">
+<meta property="og:title" content="Confete — site de aniversário">
+<meta property="og:description" content="Contagem regressiva, confirmação de presença e lista de presentes.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script src="config.js"></script>
+</head>
+<body>
+
+  <main class="card">
+
+    <header class="masthead">
+      <p class="address" id="address"></p>
+      <div class="masthead__actions">
+        <button id="theme-btn" class="theme-btn" type="button" aria-label="mudar para modo escuro">
+          <svg class="theme-btn__icon theme-btn__icon--sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="4"></circle>
+            <line x1="12" y1="2" x2="12" y2="4"></line>
+            <line x1="12" y1="20" x2="12" y2="22"></line>
+            <line x1="4.2" y1="4.2" x2="5.6" y2="5.6"></line>
+            <line x1="18.4" y1="18.4" x2="19.8" y2="19.8"></line>
+            <line x1="2" y1="12" x2="4" y2="12"></line>
+            <line x1="20" y1="12" x2="22" y2="12"></line>
+            <line x1="4.2" y1="19.8" x2="5.6" y2="18.4"></line>
+            <line x1="18.4" y1="5.6" x2="19.8" y2="4.2"></line>
+          </svg>
+          <svg class="theme-btn__icon theme-btn__icon--moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+        <button id="share-btn" class="share-btn" type="button" aria-label="compartilhar este site">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="18" cy="5" r="3"></circle>
+            <circle cx="6" cy="12" r="3"></circle>
+            <circle cx="18" cy="19" r="3"></circle>
+            <line x1="8.6" y1="10.5" x2="15.4" y2="6.5"></line>
+            <line x1="8.6" y1="13.5" x2="15.4" y2="17.5"></line>
+          </svg>
+        </button>
+      </div>
+      <span class="share-feedback" id="share-feedback" role="status" aria-live="polite"></span>
+    </header>
+
+    <div class="crest" id="crest"></div>
+
+    <p class="hero__title" id="hero-title"></p>
+
+    <div class="event-meta">
+      <p class="event-meta__date" id="event-date"></p>
+      <p class="event-meta__time" id="event-time"></p>
+    </div>
+
+    <section class="countdown" id="countdown" aria-label="contagem regressiva para a festa">
+      <div class="countdown__item">
+        <span class="countdown__value" id="cd-days">00</span>
+        <span class="countdown__unit">dias</span>
+      </div>
+      <div class="countdown__item">
+        <span class="countdown__value" id="cd-hours">00</span>
+        <span class="countdown__unit">horas</span>
+      </div>
+      <div class="countdown__item">
+        <span class="countdown__value" id="cd-min">00</span>
+        <span class="countdown__unit">min</span>
+      </div>
+      <div class="countdown__item">
+        <span class="countdown__value" id="cd-sec">00</span>
+        <span class="countdown__unit">seg</span>
+      </div>
+    </section>
+
+    <p class="demo-banner" id="demo-banner" hidden>modo demonstração: nada do que você enviar sai do seu navegador</p>
+
+    <section class="rsvp" id="rsvp">
+      <div class="field">
+        <label for="rsvp-name" class="field__label">seu nome</label>
+        <input type="text" id="rsvp-name" class="field__input" placeholder="como você quer aparecer" autocomplete="name">
+      </div>
+
+      <div class="field">
+        <span class="field__label">vai sozinho ou acompanhado?</span>
+        <div class="radio-group">
+          <label class="radio-pill">
+            <input type="radio" name="rsvp-companion" value="alone" checked>
+            só eu
+          </label>
+          <label class="radio-pill">
+            <input type="radio" name="rsvp-companion" value="with-company">
+            com acompanhante
+          </label>
+        </div>
+      </div>
+
+      <button id="rsvp-btn" class="btn" type="button">confirmar presença</button>
+
+      <p class="status" id="rsvp-status" role="status" aria-live="polite"></p>
+    </section>
+
+    <section class="intro">
+      <h1 class="intro__title">lista de presentes</h1>
+      <p class="intro__text" id="intro-text"></p>
+    </section>
+
+    <section class="gift-picker" id="gift-picker">
+
+      <div class="my-gift" id="my-gift" hidden>
+        <p class="my-gift__title" id="my-gift-title">o presente que você escolheu</p>
+        <p class="my-gift__item" id="my-gift-item">—</p>
+        <p class="my-gift__meta" id="my-gift-meta"></p>
+        <a class="my-gift__link" id="my-gift-link" target="_blank" rel="noopener noreferrer" hidden>abrir o link da loja ↗</a>
+        <a class="my-gift__wa" id="my-gift-wa" target="_blank" rel="noopener noreferrer" hidden>mandar esse link pro meu whatsapp</a>
+      </div>
+
+      <div class="field">
+        <label for="gift-select" class="field__label">escolha um presente</label>
+        <select id="gift-select" class="field__select" disabled>
+          <option value="">carregando lista...</option>
+        </select>
+      </div>
+
+      <div class="receipt" id="receipt" hidden>
+        <div class="receipt__row">
+          <span class="receipt__label">item</span>
+          <span class="receipt__value" id="receipt-item">—</span>
+        </div>
+        <div class="receipt__divider"></div>
+        <div class="receipt__row">
+          <span class="receipt__label">tamanho</span>
+          <span class="receipt__value" id="receipt-size">—</span>
+        </div>
+        <div class="receipt__divider"></div>
+        <div class="receipt__row">
+          <span class="receipt__label">cor</span>
+          <span class="receipt__value" id="receipt-color">—</span>
+        </div>
+        <div class="receipt__divider"></div>
+        <div class="receipt__row receipt__row--link">
+          <a class="receipt__value receipt__link" id="receipt-link" href="#" target="_blank" rel="noopener noreferrer">—</a>
+        </div>
+      </div>
+
+      <button id="confirm-btn" class="btn" disabled>confirmar presente</button>
+
+      <p class="status" id="status" role="status" aria-live="polite"></p>
+
+    </section>
+
+    <footer class="footnote">
+      <p id="signature"></p>
+      <p class="footnote__credit">feito com <a href="https://github.com/luccas-amorim/confete">confete</a></p>
+    </footer>
+
+  </main>
+
+<script src="script.js"></script>
+</body>
+</html>
