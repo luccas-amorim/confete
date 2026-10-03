@@ -1,5 +1,5 @@
 // Tudo o que muda de uma festa para outra fica aqui. O resto do site lê estes valores.
-window.CONFETE = {
+window.EUFROSINE = {
   // Quem faz aniversário, como deve aparecer no site (título da aba, rodapé, mensagens).
   nome: "Fulana",
 
