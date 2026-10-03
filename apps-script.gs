@@ -1,4 +1,4 @@
-// Confete: Google Apps Script que liga o site às duas planilhas (presentes e convidados).
+// Eufrosine: Google Apps Script que liga o site às duas planilhas (presentes e convidados).
 // Cole em Extensões → Apps Script e publique como Web App. Instruções no README.
 
 // Os dois IDs vêm da URL de cada arquivo: .../spreadsheets/d/<ID>/edit
