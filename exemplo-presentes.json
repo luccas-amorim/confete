@@ -1,0 +1,10 @@
+[
+  { "id": 1, "presente": "Livro de receitas", "preco": 89.9, "status": "disponivel", "tamanho": "-", "cor": "", "link": "" },
+  { "id": 2, "presente": "Caneca de cerâmica", "preco": 59, "status": "disponivel", "tamanho": "-", "cor": "azul", "link": "" },
+  { "id": 3, "presente": "Planta para a sala", "preco": 120, "status": "disponivel", "tamanho": "média", "cor": "", "link": "" },
+  { "id": 4, "presente": "Jogo de tabuleiro", "preco": 179, "status": "disponivel", "tamanho": "-", "cor": "", "link": "" },
+  { "id": 5, "presente": "Camiseta", "preco": 99, "status": "reservado", "tamanho": "M", "cor": "preta", "link": "" },
+  { "id": 6, "presente": "Fone de ouvido", "preco": 249, "status": "disponivel", "tamanho": "-", "cor": "branco", "link": "" },
+  { "id": 7, "presente": "Mochila", "preco": 320, "status": "disponivel", "tamanho": "-", "cor": "verde", "link": "" },
+  { "id": 8, "presente": "Vale-experiência", "preco": 600, "status": "disponivel", "tamanho": "-", "cor": "", "link": "" }
+]
