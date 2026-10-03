@@ -1,11 +1,13 @@
-# Confete
+# Eufrosine
+
+<sub>O nome vem de Eufrosine, uma das três Graças. [Por quê?](MITO.md)</sub>
 
 **Site de aniversário gratuito: contagem regressiva, confirmação de presença e lista de presentes que some conforme os convidados escolhem.**
 
 HTML, CSS e JavaScript puros, sem build e sem servidor próprio. Publica no GitHub Pages de graça,
 e a lista de presentes mora numa planilha do Google Sheets que você edita como qualquer planilha.
 
-**Demonstração:** [luccas-amorim.github.io/confete](https://luccas-amorim.github.io/confete/). Sem
+**Demonstração:** [luccas-amorim.github.io/eufrosine](https://luccas-amorim.github.io/eufrosine/). Sem
 planilha configurada, o site roda em modo demonstração: a lista vem de `exemplo-presentes.json` e
 nada do que se digita sai do navegador.
 
@@ -74,7 +76,7 @@ Pontos que já deram dor de cabeça:
 
 ## Apoie
 
-O Confete é e continua gratuito. Se ele foi útil, apoie em
+A Eufrosine é e continua gratuita. Se ele foi útil, apoie em
 [GitHub Sponsors](https://github.com/sponsors/luccas-amorim) ou por
 [PIX](https://luccas-amorim.github.io/apoie/).
 
