@@ -1,4 +1,4 @@
-const C = window.CONFETE || {};
+const C = window.EUFROSINE || {};
 const API_URL = C.apiUrl || "";
 const DEMO = !API_URL;
 const EMOJI = C.emoji || "💙";
